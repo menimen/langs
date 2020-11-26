@@ -1,16 +1,16 @@
 function constfuncs() {
-	var funcs = []
-	for (var i = 0; i < 10; i++)
-		funcs[i] = f(i)
+	var funcs = [];
 	function f(i){
-		var func = function () {return i};
-		return func
+		var b = function (){return i};
+		return b;
 	}
-
+	for(var i=0; i<10; i++) 
+		funcs[i]=f(i);
+	
 	return funcs;
 }
 
 var funcs = constfuncs();
 
-for (var i = 0; i < 10; i++)
-	console.log(funcs[i] + ":", funcs[i]())
+for(var i=0; i<10; i++) 
+	console.log(funcs[i]+":",funcs[i]())
